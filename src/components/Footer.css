@@ -1,13 +1,11 @@
 .social-icon {
-  font-size: 40px;
-  /* Adjust icon size as needed */
-  margin: 0 30px;
-  /* Adjust margin between icons as needed */
-  display: inline-block;
-  transition: transform 0.3s ease-in-out;
+    font-size: 40px;
+    margin: 0 30px;
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
 }
 
 .social-icon:hover {
-  transform: scale(1.5);
-  color: white;
+    transform: scale(1.5);
+    color: white;
 }

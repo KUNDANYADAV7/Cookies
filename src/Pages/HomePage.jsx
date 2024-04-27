@@ -7,12 +7,9 @@ import vk2 from "../images/vk2.png";
 const HomePage = ({ user, onLogout }) => {
   const navigate = useNavigate();
   const handleLogout = () => {
-    // Ask for confirmation before logging out
     const confirmed = window.confirm("Are you sure you want to logout?");
     if (confirmed) {
-      // Call the onLogout function passed from the parent component
       onLogout();
-      // Redirect to the login page
       navigate("/");
     }
   };

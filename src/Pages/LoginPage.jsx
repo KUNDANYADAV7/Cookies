@@ -12,14 +12,13 @@ const LoginPage = ({ onLogin }) => {
     try {
       const isLoggedIn = await onLogin(email, password);
       if (isLoggedIn) {
-        setShowPopup(true); // Show the popup on successful login
+        setShowPopup(true);
         setTimeout(() => {
-          setShowPopup(false); // Hide the popup after a delay (e.g., 3 seconds)
-          navigate("/home"); // Redirect to HomePage.jsx after successful login
+          setShowPopup(false);
+          navigate("/home");
         }, 3000);
       }
     } catch (error) {
-      // Handle login errors here
       alert(error.message);
     }
   };

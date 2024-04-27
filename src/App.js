@@ -12,7 +12,6 @@ export default function App() {
   const [cookies, setCookie, removeCookie] = useCookies(["user"]);
   const [user, setUser] = useState(null);
 
-  // Check if user is already logged in when component mounts
   useEffect(() => {
     const loggedInUser = cookies.user;
     if (loggedInUser) {
@@ -22,14 +21,12 @@ export default function App() {
 
   const handleLogin = async (email, password) => {
     try {
-      // Make API call to verify credentials
       const response = await fetch("https://mejevo.pythonanywhere.com/emps/");
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
 
-      // Check if credentials are valid
       const loggedInUser = data.find(
         (user) => user.email === email && user.password === password
       );
@@ -37,29 +34,24 @@ export default function App() {
         throw new Error("Invalid email or password");
       }
 
-      // Check if another user is already logged in
       if (user && user.email !== loggedInUser.email) {
         alert("Another user is already logged in.");
         return false;
       }
 
-      // Store user data in cookies
       setCookie("user", loggedInUser, { path: "/" });
 
-      // Update user state
       setUser(loggedInUser);
 
-      return true; // Return true for successful login
+      return true;
     } catch (error) {
       alert(error.message);
-      return false; // Return false for failed login
+      return false;
     }
   };
 
   const handleLogout = () => {
-    // Remove user data from cookies
     removeCookie("user");
-    // Update user state to null
     setUser(null);
   };
 
@@ -83,7 +75,6 @@ export default function App() {
           path="/page3"
           element={<Page3 user={user} onLogout={handleLogout} />}
         />
-        {/* Redirect to login page if user is not authenticated */}
         <Route
           path="*"
           element={
