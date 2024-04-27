@@ -1,0 +1,27 @@
+.logo {
+  height: 50px;
+  /* Set the initial height */
+  width: auto;
+  /* Ensure the width adjusts according to the height */
+  /* margin-right: 240px; */
+}
+
+.navbar-nav .nav-item {
+  margin-right: 200px;
+  font-weight: 500;
+  font-size: large;
+  /* Increase the space between nav items */
+}
+
+@media (max-width: 767px) {
+  .logo {
+    height: 40px;
+    /* Adjust the height for smaller screens */
+    margin-right: 10px;
+    /* Adjust margin for smaller screens */
+  }
+  .navbar-nav .nav-item {
+    margin-right: 10px;
+    /* Adjust margin for smaller screens */
+  }
+}
